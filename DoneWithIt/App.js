@@ -7,7 +7,7 @@ import styles from './style';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text1}>Cryptopass</Text>
+      <Text style={styles.text1}>Cryptospass</Text>
     </SafeAreaView>
   );
 }
