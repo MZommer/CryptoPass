@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, Button } from 'react-native';
 import styles from './style';
 
 
 export default function App() {
+  const [text, setText] = useState('');
+
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text1}>Cryptopass</Text>
+      <Text style={styles.text1}>{`Cryptopass\n`}</Text>
+      <TextInput
+        style={styles.textInput}
+        placeholder={`Search event`}
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
+      />
     </SafeAreaView>
   );
 }
