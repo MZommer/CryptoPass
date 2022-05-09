@@ -13,7 +13,7 @@ export default StyleSheet.create({
         fontSize: 20,
         placeholderTextColor: 'black',
         borderWidth: 1,
-        borderColor:'white',
+        borderColor:'black',
         width: "80%",
         borderRadius: 100,
         padding: 15,

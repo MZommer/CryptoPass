@@ -1,27 +1,20 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, SafeAreaView, TextInput, Button } from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView } from 'react-native';
 import styles from './style';
-import { NativeBaseProvider, Box } from "native-base";
+import { Text, Button, Input, Block, COLORS, SIZES, theme, withGalio, GalioProvider } from 'galio-framework';
 
 
 export default function App() {
-  const [text, setText] = useState('');
+	const [text, setText] = useState('');
+	return (
+		<View style={styles.container}>
+			<Text style={styles.text1}>{`Cryptopass\n`}</Text>	
+			<Input placeholderTextColor={theme.COLORS.WHITE} placeholder=" Search event" bgColor = {theme.COLORS.BLACK }rounded color={theme.COLORS.WHITE} style={{ borderColor: theme.COLORS.WHITE }} />
+			
+		</View>	
 
-  return (
-	<SafeAreaView style={styles.container}>
-		<Text style={styles.text1}>{`Cryptopass\n`}</Text>
-		<TextInput
-			style={styles.textInput}
-			placeholder={`Search event`}
-			onChangeText={newText => setText(newText)}
-			defaultValue={text}
-		/>
-		<NativeBaseProvider>	
-			<Box>Hello world</Box>
-		</NativeBaseProvider>
-	</SafeAreaView>
-);
+	);
 }
 /*
 const styles = StyleSheet.create({
