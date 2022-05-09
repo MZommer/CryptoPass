@@ -8,14 +8,15 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     textInput: {
-        color: '9590A0',
+        color: 'white',
         backgroundColor: "#9590A0",
         fontSize: 20,
-        placeholderTextColor: '#9590A0',
+        placeholderTextColor: 'black',
         borderWidth: 1,
+        borderColor:'white',
         width: "80%",
         borderRadius: 100,
-        padding: 19,
+        padding: 15,
     },
     text1: {
         marginTop: 50,
