@@ -1,25 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
 
+
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <form>
+          <label>
+            Name:
+            <input type="text" name="name" id='name'/>
+          </label>
+
+          <label>
+            password:
+            <input type="text" id='password' />
+          </label>
+          <button type="submit" onSubmit={pantallaInicio()}>
+          enviar
+        </button>
+        </form>
+
+      
+      
       </header>
     </div>
+    
   );
+}
+const pantallaInicio = (name) =>{
+  
+  console.log('funcion pantalla inicio')
 }
 
 export default App;
