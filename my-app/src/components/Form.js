@@ -1,34 +1,91 @@
-import React, 
+import React, { Component } from 'react';
 
-class NameForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {value: ''};
-  
-      this.handleChange = this.handleChange.bind(this);
-      this.handleSubmit = this.handleSubmit.bind(this);
-    }
-  
-    handleChange(event) {
-      this.setState({value: event.target.value});
-    }
-  
-    handleSubmit(event) {
-      alert('A name was submitted: ' + this.state.value);
-      event.preventDefault();
-    }
-    render() {
-        return (
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              Name:
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        );
-      }
-    }
-    
-    const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<NameForm />);
+class TodoForm extends Component {
+  constructor () {
+    super();
+    this.state = {
+      title: '',
+      responsible: '',
+      description: '',
+      priority: 'low'
+    };
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.onAddTodo(this.state);
+    this.setState({
+      title: '',
+      responsible: '',
+      description: '',
+      priority: 'low'
+    });
+  }
+
+  handleInputChange(e) {
+    const {value, name} = e.target;
+    console.log(value, name);
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    return (
+      <div className="card">
+        <form onSubmit={this.handleSubmit} className="card-body">
+          <div className="form-group">
+            <input
+              type="text"
+              name="title"
+              className="form-control"
+              value={this.state.title}
+              onChange={this.handleInputChange}
+              placeholder="Title"
+              />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="responsible"
+              className="form-control"
+              value={this.state.responsible}
+              onChange={this.handleInputChange}
+              placeholder="Responsible"
+              />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              name="description"
+              className="form-control"
+              value={this.state.description}
+              onChange={this.handleInputChange}
+              placeholder="Description"
+              />
+          </div>
+          <div className="form-group">
+            <select
+                name="priority"
+                className="form-control"
+                value={this.state.priority}
+                onChange={this.handleInputChange}
+              >
+              <option>low</option>
+              <option>medium</option>
+              <option>high</option>
+            </select>
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Save
+          </button>
+        </form>
+      </div>
+    )
+  }
+
+}
+
+export default TodoForm;
