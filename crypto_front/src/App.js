@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Input, Form, FormGroup, Label,s } from 'reactstrap';
+import { Button, Input, Form, FormGroup, Label, Row, Col } from 'reactstrap';
 
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
               <Label
                 className="me-sm-2"
                 for="name">
-                name
+                Name
               </Label>
               <Input
                 id="name"
@@ -53,10 +53,25 @@ function App() {
                 placeholder="don't tell!"
                 type="password"
               />
-            </FormGroup><br></br>
-            <Button  color="primary">
-              Submit
-            </Button>
+            </FormGroup>
+            <FormGroup check inline>
+              <Input type="checkbox" />
+              <Label check>
+                I accept all terms.
+              </Label>
+            </FormGroup>
+            <br></br>
+
+            <Row>
+              <Col></Col>
+              <Col>
+                <Button color="info">sign up</Button>
+              </Col>
+              <Col>
+                <Button color="info" outline>fogot your password?</Button>
+              </Col>
+              <Col></Col>
+            </Row>
           </Form>
         </div>
       </body>
