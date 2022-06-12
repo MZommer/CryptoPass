@@ -8,6 +8,8 @@ import Footer from './components/Footer'
 import Home from './components/Home'
 import Error404 from './components/Error404'
 import Restricted from './components/Restricted'
+import VerEntradas from './components/VerEntradas'
+
 
 export default class App extends Component {
     render() {
@@ -17,6 +19,7 @@ export default class App extends Component {
                 <Switch>
                     <Route exact path='/' component={Home} />
                     <Route exact path='/login' component={Restricted} />
+                    <Route exact path='/compras' component={VerEntradas} />
                     <Route component={Error404} />
                 </Switch>
                 <Footer />
