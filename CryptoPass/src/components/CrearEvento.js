@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class VerEntradas extends Component {
+export default class CrearEvento extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -25,7 +25,7 @@ export default class VerEntradas extends Component {
     render() {
     return(
         <div className="page-wrapper">
-        <h1>mis entradas</h1>
+        <h1>form</h1>
     </div>
     )
 

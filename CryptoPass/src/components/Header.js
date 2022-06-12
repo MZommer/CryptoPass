@@ -211,6 +211,14 @@ class Header extends Component {
                                 <div className="menu-title">Ver mis entradas</div>
                             </Link>
                         </li>
+                        <li>
+                            <Link className="tab" to="/CrearEvento">
+                                <div className="parent-icon">
+                                    <i className='bx lni-ticket-alt'></i>
+                                </div>
+                                <div className="menu-title">Crear evento</div>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 <header>
