@@ -71,12 +71,12 @@ export default class Restricted extends Component {
                         <Row className='text-center'>
                             <Col>
                                 <div className="d-grid gap-2 mb-3">  
-                                    <Button className="boton" variant="primary" >Create event</Button>
+                                    <Button className="boton" variant="secondary" >Create event</Button>
                                 </div>
                             </Col>
                             <Col>
                                 <div className="d-grid gap-2 mb-3" > 
-                                    <Button className="boton" variant="primary" >Buy tickets</Button>
+                                    <Button className="boton" variant="secondary" >Buy tickets</Button>
                                 </div>
                             </Col>
                         </Row>

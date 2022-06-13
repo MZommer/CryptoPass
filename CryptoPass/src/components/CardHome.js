@@ -19,7 +19,7 @@ function CardHome() {
                 Some quick example text to build on the card title and make up the
                 bulk of the card's content.
                 </Card.Text>
-                <Button className="boton" variant="primary" >Buy tickets</Button>
+                <Button className="boton" variant="secondary" >Buy tickets</Button>
             </Card.Body>
             </Card>
         </>

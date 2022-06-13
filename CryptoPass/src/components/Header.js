@@ -216,7 +216,7 @@ class Header extends Component {
                                 <div className="parent-icon">
                                     <i className='bx lni-ticket-alt'></i>
                                 </div>
-                                <div className="menu-title">Ver mis entradas</div>
+                                <div className="menu-title">View tickets</div>
                             </Link>
                         </li>
                         <li>
@@ -224,7 +224,7 @@ class Header extends Component {
                                 <div className="parent-icon">
                                     <i className='bx lni-ticket-alt'></i>
                                 </div>
-                                <div className="menu-title">Crear evento</div>
+                                <div className="menu-title">Create event</div>
                             </Link>
                         </li>
                         <li>
