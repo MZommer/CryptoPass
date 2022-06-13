@@ -212,3 +212,9 @@
   object-fit: cover;
   object-position: center;
 }
+
+.btn.boton{
+  border-radius: 30px;
+  background-color:#3D6D79;
+  border-color:#3D6D79;
+}

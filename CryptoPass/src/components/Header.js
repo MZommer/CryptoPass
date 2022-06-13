@@ -8,6 +8,13 @@ import commaNumber from 'comma-number'
 import { Link } from 'react-router-dom'
 import ethHelper from '../services/ethHelper'
 import { withRouter } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import image from "../img/buscador.png";
 
 class Header extends Component {
     constructor(props) {
@@ -174,7 +181,8 @@ class Header extends Component {
         else {
             return (
                 <button onClick={() => this.connect()} type="button" className="btn btn-outline-dark  px-3 radius-30">Conectarse</button>
-            )
+                 
+            )        
         }
     }
 
@@ -191,7 +199,7 @@ class Header extends Component {
                             <p className="logo-text">Crypto <span className="badge bg-primary bg-iuser-youtube">Pass</span></p>
                         </div>
                         <div className="toggle-icon ms-auto"><i className='bx bx-arrow-to-left'></i>
-                        </div>
+                        </div>  
                     </div>
                     <ul className="metismenu" id="menu">
                         <li className="menu-label"><strong>Dashboard</strong></li>
@@ -219,6 +227,19 @@ class Header extends Component {
                                 <div className="menu-title">Crear evento</div>
                             </Link>
                         </li>
+                        <li>
+                            <Link className="tab" to="/BuscadorEvento">
+                                <Form.Control
+                                type="search"
+                                placeholder="Search"
+                                className="me-2"
+                                aria-label="Search"
+                                />
+                             <img className={/>
+                                
+                            </Link>
+                        </li>
+
                     </ul>
                 </div>
                 <header>

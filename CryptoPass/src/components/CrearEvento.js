@@ -68,7 +68,7 @@ export default class CrearEvento extends Component {
                     <Form.Check type="checkbox" label=" I accept terms and conditions" />
                 </Form.Group>
                 <div className="d-grid gap-2">
-                    <Button variant="primary" >
+                    <Button className="boton" variant="primary" >
                         Create event
                     </Button>
                 </div>
