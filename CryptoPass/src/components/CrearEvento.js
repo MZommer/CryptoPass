@@ -3,6 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+
 
 
 export default class CrearEvento extends Component {
@@ -32,21 +34,46 @@ export default class CrearEvento extends Component {
         <div className="page-wrapper">
         <Container>
         <h1 className='text-center'>Event </h1>
-            <Row className='text-center'>
-                <Col>
-                <Form>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-                        <Form.Label>Event Name</Form.Label>
-                        <Form.Control type="email" placeholder="name@example.com" />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-                        <Form.Label>Description</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
-                    </Form.Group>
-                </Form>
-                </Col>
-                <Col>2 of 2</Col>
-            </Row>
+            <Form>
+                <Row className='text-center'>
+                
+                    <Col>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                            <Form.Label>Event Name</Form.Label>
+                            <Form.Control type="text" placeholder="Event" />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Description</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
+                        <Form.Select aria-label="Default select example">
+                            <option>Event type</option>
+                            <option value="1">Party</option>
+                            <option value="2">Conference</option>
+                            <option value="3">concerts</option>
+                        </Form.Select>
+                    </Col>
+                    <Col>
+                        <Form.Group as={Col} controlId="formGridCity">
+                            <Form.Label>City</Form.Label>
+                            <Form.Control />
+                        </Form.Group>
+                        <Form.Group className="mb-3" controlId="formGridAddress1">
+                            <Form.Label>Address</Form.Label>
+                            <Form.Control placeholder="1234 Main St" />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Form.Group className="mb-3" id="formGridCheckbox">
+                    <Form.Check type="checkbox" label=" I accept terms and conditions" />
+                </Form.Group>
+                <div className="d-grid gap-2">
+                    <Button variant="primary" >
+                        Create event
+                    </Button>
+                </div>
+            </Form>
+                
         </Container>
     </div>
     )
