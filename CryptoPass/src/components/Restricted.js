@@ -1,4 +1,17 @@
 import React, { Component } from 'react'
+import Carousel from 'react-bootstrap/Carousel';
+import car1 from "../img/concierto.jpg";
+import car2 from "../img/concierto2.jpg";
+import car3 from "../img/conferencia.jpg";
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+
+
+
+
+
 
 export default class Restricted extends Component {
     constructor(props) {
@@ -25,10 +38,45 @@ export default class Restricted extends Component {
     render() {
         return (
             <div className="page-wrapper">
-                <div className="page-content">
-                    <div className="nothing-to-show d-flex align-items-center justify-content-center">
-                       
-                    </div>
+                <div className="page-content">  
+                    <Carousel className='mb-3'>
+                        <Carousel.Item>
+                            <img
+                            className="d-block w-100"
+                            src={car1}
+                            alt="First slide"
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                            className="d-block w-100"
+                            src={car2}
+                            alt="Second slide"
+                            />
+
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                            className="d-block w-100"
+                            src={car3}
+                            alt="Third slide"
+                            />
+                        </Carousel.Item>
+                    </Carousel>
+                    <Container className='mb-3'>
+                            <Row className='text-center'>
+                                <Col>
+                                    <div className="d-grid gap-2">  
+                                        <Button className="boton" variant="primary" >Create event</Button>
+                                    </div>
+                                </Col>
+                                <Col>
+                                    <div className="d-grid gap-2"> 
+                                        <Button className="boton" variant="primary" >Buy tickets</Button>
+                                    </div>
+                                </Col>
+                            </Row>
+                    </Container>
                 </div>
             </div>
         )

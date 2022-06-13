@@ -235,7 +235,6 @@ class Header extends Component {
                                 className="me-2"
                                 aria-label="Search"
                                 />
-                                
                             </Link>
                         </li>
 
