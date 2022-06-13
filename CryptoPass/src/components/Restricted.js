@@ -3,11 +3,14 @@ import Carousel from 'react-bootstrap/Carousel';
 import car1 from "../img/concierto.jpg";
 import car2 from "../img/concierto2.jpg";
 import car3 from "../img/conferencia.jpg";
+import card1 from "../img/cardImage.jpg";
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-
+import Card from 'react-bootstrap/Card';
+import CardHome from './CardHome';
 
 
 
@@ -40,6 +43,7 @@ export default class Restricted extends Component {
             <div className="page-wrapper">
                 <div className="page-content">  
                     <Carousel className='mb-3'>
+                        
                         <Carousel.Item>
                             <img
                             className="d-block w-100"
@@ -64,18 +68,23 @@ export default class Restricted extends Component {
                         </Carousel.Item>
                     </Carousel>
                     <Container className='mb-3'>
-                            <Row className='text-center'>
-                                <Col>
-                                    <div className="d-grid gap-2">  
-                                        <Button className="boton" variant="primary" >Create event</Button>
-                                    </div>
-                                </Col>
-                                <Col>
-                                    <div className="d-grid gap-2"> 
-                                        <Button className="boton" variant="primary" >Buy tickets</Button>
-                                    </div>
-                                </Col>
-                            </Row>
+                        <Row className='text-center'>
+                            <Col>
+                                <div className="d-grid gap-2 mb-3">  
+                                    <Button className="boton" variant="primary" >Create event</Button>
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="d-grid gap-2 mb-3" > 
+                                    <Button className="boton" variant="primary" >Buy tickets</Button>
+                                </div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col><CardHome/></Col>
+                            <Col><CardHome/></Col>
+                            <Col><CardHome/></Col>
+                        </Row>
                     </Container>
                 </div>
             </div>
