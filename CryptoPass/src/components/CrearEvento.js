@@ -34,11 +34,11 @@ export default class CrearEvento extends Component {
 
                         <Form.Group className="mb-3" controlId="MinAge">
                             <Form.Label>MinAge</Form.Label>
-                            <Form.Control as="textarea" rows={3} />
+                            <Form.Control type="number" rows={3} />
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="IsActive">
                             <Form.Label>IsActive</Form.Label>
-                            <Form.Control type="number" placeholder="50" />
+                            <Form.Control type="text" placeholder="50" />
                         </Form.Group>
                     </Col>
                     <Col>
