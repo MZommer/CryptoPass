@@ -238,6 +238,14 @@ class Header extends Component {
                             </Link>
                         </li>
                         <li>
+                            <Link className="tab" to="/readQr">
+                                <div className="parent-icon">
+                                    <i className='bx lni-ticket-alt'></i>
+                                </div>
+                                <div className="menu-title">readQr</div>
+                            </Link>
+                        </li>
+                        <li>
                             <Link className="tab" to="/BuscadorEvento">
                                 <Form.Control
                                 type="search"
