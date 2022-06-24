@@ -24,7 +24,8 @@ export default function ReadQr() {
 
     return (
         <>
-            <QrReader
+        
+            <QrReader  className="text-center"
             onError={handleError}
             onScan={handleScan}
             />
