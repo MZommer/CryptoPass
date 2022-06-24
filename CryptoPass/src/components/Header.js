@@ -43,6 +43,8 @@ class Header extends Component {
 
         this._web3 = new Web3(this.provider)
         this._eth = new ethHelper(this._web3)
+        window.web3 = this._web3;
+        window.eth = this._eth;
         this.setState({
             account: (await this.getAccount())
         }, () => {
@@ -225,6 +227,14 @@ class Header extends Component {
                                     <i className='bx lni-ticket-alt'></i>
                                 </div>
                                 <div className="menu-title">Create event</div>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="tab" to="/Sign">
+                                <div className="parent-icon">
+                                    <i className='bx lni-ticket-alt'></i>
+                                </div>
+                                <div className="menu-title">sign</div>
                             </Link>
                         </li>
                         <li>

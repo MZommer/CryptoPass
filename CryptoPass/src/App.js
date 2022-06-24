@@ -11,6 +11,8 @@ import Error404 from './components/Error404'
 import Restricted from './components/Restricted'
 import VerEntradas from './components/VerEntradas'
 import CrearEvento from './components/CrearEvento'
+import Sign from './components/Sign'
+
 
 
 
@@ -24,6 +26,8 @@ export default class App extends Component {
                     <Route exact path='/login' component={Restricted} />
                     <Route exact path='/compras' component={VerEntradas} />
                     <Route exact path='/CrearEvento' component={CrearEvento} />
+                    <Route exact path='/Sign' component={Sign} />
+
 
                     <Route component={Error404} />
                 </Switch>
