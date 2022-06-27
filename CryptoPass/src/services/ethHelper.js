@@ -1,5 +1,7 @@
 import { ethers } from "ethers";
 
+const BLOCK_DELAY = 15000;
+
 export default class ETHHelper {
     constructor(web3) {
         this._web3 = web3
@@ -8,6 +10,11 @@ export default class ETHHelper {
 
     async balance(wallet) {
         return (await this._web3.eth.getBalance(wallet)) / (10 ** 18)
+    }
+    async getNextBlockOffset() {
+        const blockNumber = await this._web3.eth.getBlockNumber();
+        const block = await this._web3.eth.getBlock(blockNumber);
+        return Date.now() - block.timestamp - BLOCK_DELAY;
     }
 
     async generatePass(){
