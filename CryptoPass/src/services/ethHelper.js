@@ -1,7 +1,5 @@
 import { ethers } from "ethers";
 
-const BLOCK_DELAY = 15000;
-
 export default class ETHHelper {
     constructor(web3) {
         this._web3 = web3
@@ -11,14 +9,13 @@ export default class ETHHelper {
     async balance(wallet) {
         return (await this._web3.eth.getBalance(wallet)) / (10 ** 18)
     }
-    async getNextBlockOffset() {
-        const blockNumber = await this._web3.eth.getBlockNumber();
-        const block = await this._web3.eth.getBlock(blockNumber);
-        return Date.now() - block.timestamp - BLOCK_DELAY;
+    
+    async getBlockNumber() {
+        return await this._web3.eth.getBlockNumber()
     }
 
     async generatePass(){
-        const blockNumber = await this._web3.eth.getBlockNumber()
+        const blockNumber = await this.getBlockNumber();
         const signer = this._etherProvider.getSigner();
         const signature = await signer.signMessage(blockNumber.toString());
         const address = await signer.getAddress();
@@ -32,7 +29,7 @@ export default class ETHHelper {
         const blockNumber = this._web3.eth.getBlockNumber()
         const [signature, adress] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(blockNumber, signature);
-        return signerAdress == adress;
+        return signerAdress === adress;
     }
 
 }

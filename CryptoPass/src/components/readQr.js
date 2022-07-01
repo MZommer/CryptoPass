@@ -17,9 +17,10 @@ export default function ReadQr() {
         console.error(err);
     }
     function handleScan(data){
-        if (data)
+        if (data) {
             setResult(data.text);
             handlePass();
+        }
     }
 
     return (
