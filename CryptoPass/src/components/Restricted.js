@@ -10,7 +10,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import CardHome from './CardHome';
+import EventCard from './EventCard';
 
 
 
@@ -81,9 +81,9 @@ export default class Restricted extends Component {
                             </Col>
                         </Row>
                         <Row>
-                            <Col><CardHome/></Col>
-                            <Col><CardHome/></Col>
-                            <Col><CardHome/></Col>
+                            <Col><EventCard/></Col>
+                            <Col><EventCard/></Col>
+                            <Col><EventCard/></Col>
                         </Row>
                     </Container>
                 </div>

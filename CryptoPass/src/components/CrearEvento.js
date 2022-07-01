@@ -11,7 +11,7 @@ export default class CrearEvento extends Component {
         <div className="page-wrapper">
         <Container>
         <h1 className='text-center'>Event </h1>
-            <Form action={`https://CryptoPassServices.matiaszommer.repl.co/v1/events/create`} method="post">
+            <Form action={`https://CryptoPassServices.matiaszommer.repl.co/v1/events/create`} method="POST">
                 <Row className='text-center mb-3'>
                 
                     <Col>

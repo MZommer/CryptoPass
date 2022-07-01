@@ -8,13 +8,7 @@ import commaNumber from 'comma-number'
 import { Link } from 'react-router-dom'
 import ethHelper from '../services/ethHelper'
 import { withRouter } from 'react-router-dom'
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import image from "../img/buscador.png";
 
 class Header extends Component {
     constructor(props) {

@@ -8,7 +8,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import Error404 from './components/Error404'
-import Restricted from './components/Restricted'
+import Events from './components/Events'
 import VerEntradas from './components/VerEntradas'
 import CrearEvento from './components/CrearEvento'
 import Sign from './components/Sign'
@@ -25,7 +25,7 @@ export default class App extends Component {
                 <Header />
                 <Switch>
                     <Route exact path='/' component={Home} />
-                    <Route exact path='/login' component={Restricted} />
+                    <Route exact path='/events' component={Events} />
                     <Route exact path='/compras' component={VerEntradas} />
                     <Route exact path='/CrearEvento' component={CrearEvento} />
                     <Route exact path='/Sign' component={Sign} />
