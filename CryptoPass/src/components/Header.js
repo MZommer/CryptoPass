@@ -100,7 +100,6 @@ class Header extends Component {
             }
         }
 
-        this.props.history.push('/login')
     }
 
     dropState() {
@@ -129,7 +128,7 @@ class Header extends Component {
         })
         if (isConnected()) {
             this.connect()
-        } else this.props.history.push('/login')
+        }
     }
 
     async componentDidMount() {
