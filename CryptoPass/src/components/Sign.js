@@ -17,7 +17,7 @@ export default function Sign() {
     return (
         <div className="page-wrapper">
             <Container className="text-center">
-                {qrCode ? <QRCode value={qrCode}/> : <div>Sign</div>}       
+                {qrCode ? <QRCode value={qrCode}/> : <div>Accept the Sign prompt</div>}       
             </Container>
         </div>
     )
