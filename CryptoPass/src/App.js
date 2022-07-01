@@ -24,7 +24,7 @@ export default class App extends Component {
             <Router>
                 <Header />
                 <Switch>
-                    <Route exact path='/' component={Home} />
+                    <Route exact path='/' component={Events} />
                     <Route exact path='/events' component={Events} />
                     <Route exact path='/compras' component={VerEntradas} />
                     <Route exact path='/CrearEvento' component={CrearEvento} />

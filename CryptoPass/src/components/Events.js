@@ -8,14 +8,16 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import EventCard from './EventCard';
-import axios from 'axios';
 
 export default function Events() {
     const [events, setEvents] = useState([]);
-    useEffect(() => 
-        axios("https://cryptopassservices.matiaszommer.repl.co/v1/events/search")
-            .then(res => setEvents(res.data))
-    )
+
+    useEffect(() => {
+        fetch("https://cryptopassservices.matiaszommer.repl.co/v1/events/search")
+          .then(response => response.json())
+          .then(events => setEvents(events));
+    }, [])
+
     return (
         <div className="page-wrapper">
             <div className="page-content">  
@@ -59,7 +61,7 @@ export default function Events() {
                     </Row>
                     <Row>
                         <div className="d-flex justify-content-between flex-wrap">
-                            {events.map(event => <EventCard title={events.Title} text={event.Description} />)}
+                            {events.map(event => <EventCard title={event.Title} text={event.Description} />)}
                         </div>
                     </Row>
                 </Container>
