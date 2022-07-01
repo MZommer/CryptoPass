@@ -17,9 +17,17 @@ export default function Sign() {
     }, 10000)
     return (
         <div className="page-wrapper">
-                <Container className="text-center" style={{"margin-top": "25%"}}>
-                    {qrCode ? <QRCode value={qrCode}/> : <div>{errorCode ? errorCode : "Accept the Sign prompt"}</div>}       
+            <div id="qrbox">
+                <Container className="d-flex align-items-center justify-content-center" style={{"margin-top": "15%"}}>
+                    {
+                        qrCode ? 
+                        (
+                            <span className="QRContainer"><QRCode value={qrCode}/></span>
+                        ) : 
+                        <div>{errorCode ? errorCode : "Accept the Sign prompt"}</div>
+                    }       
                 </Container>
+            </div>
         </div>
     )
 }
