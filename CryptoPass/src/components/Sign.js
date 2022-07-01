@@ -4,10 +4,11 @@ import QRCode from "react-qr-code";
 
 export default function Sign() {
     const [qrCode, setQrCode] = useState();
+    const [errorCode, setErrorCode] = useState();
     const [blockNumber, setBlockNumber] = useState((async () => await window.eth.getBlockNumber())());
     useEffect(() => {
         (async () => setQrCode(await window.eth.generatePass()))()
-        .catch(console.error);
+        .catch(() => setErrorCode("Accept the signing prompt to continue!"));
     }, [blockNumber])
     setInterval(async () => {
         const _blockNumber = await window.eth.getBlockNumber();
@@ -16,9 +17,9 @@ export default function Sign() {
     }, 10000)
     return (
         <div className="page-wrapper">
-            <Container className="text-center">
-                {qrCode ? <QRCode value={qrCode}/> : <div>Accept the Sign prompt</div>}       
-            </Container>
+                <Container className="text-center" style={{"margin-top": "25%"}}>
+                    {qrCode ? <QRCode value={qrCode}/> : <div>{errorCode ? errorCode : "Accept the Sign prompt"}</div>}       
+                </Container>
         </div>
     )
 }
