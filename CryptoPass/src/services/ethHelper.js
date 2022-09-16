@@ -1,4 +1,5 @@
 import { ethers } from "ethers";
+import EVT_ABI from "./ABI/EVT.json";
 
 export default class ETHHelper {
     constructor(web3) {
@@ -30,6 +31,15 @@ export default class ETHHelper {
         const [signature, adress] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(blockNumber, signature);
         return signerAdress === adress;
+    }
+
+    async getEvent(address) {
+        const EVT = new ethers.Contract(address, EVT_ABI, this._etherProvider);
+        const keys = ["Title", "Description", "Location", "Date", "ReleaseDate", "IsActive", "IsPublic", "TicketAmount", "TicketTypes", "Genres", "Tags", "MinAge", "mintedTickets"];
+        const values = Promise.all(keys.map(key => EVT[key]()));
+        const event = Object.fromEntries(keys.map((_, i) => [keys[i], values[i]]));
+
+        return event;
     }
 
 }
