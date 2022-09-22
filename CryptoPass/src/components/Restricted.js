@@ -11,6 +11,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import EventCard from './EventCard';
+import ComprarEntrada from './ComprarEntrada';
+
 
 
 
@@ -76,7 +78,7 @@ export default class Restricted extends Component {
                             </Col>
                             <Col>
                                 <div className="d-grid gap-2 mb-3" > 
-                                    <Button className="boton" variant="secondary" >Buy tickets</Button>
+                                    <Button className="boton" variant="secondary" onClick={ComprarEntrada}>Buy tddickets</Button>
                                 </div>
                             </Col>
                         </Row>
