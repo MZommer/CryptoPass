@@ -7,6 +7,11 @@ export default class ETHHelper {
         this._etherProvider = new ethers.providers.Web3Provider(this._web3.currentProvider);
     }
 
+    async getAddress(){
+        const signer = this._etherProvider.getSigner();
+        return signer.getAddress();
+    }
+
     async balance(wallet) {
         return (await this._web3.eth.getBalance(wallet)) / (10 ** 18)
     }
@@ -28,9 +33,9 @@ export default class ETHHelper {
         if (!pass.startsWith("CPT"))
             return false;
         const blockNumber = this._web3.eth.getBlockNumber()
-        const [signature, adress] = atob(pass.split(" ")[1]).split(";");
+        const [signature, address] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(blockNumber, signature);
-        return signerAdress === adress;
+        return signerAdress === address;
     }
 
     async getEvent(address) {
@@ -42,4 +47,14 @@ export default class ETHHelper {
         return event;
     }
 
+    async createEvent(address) {
+        const EVT = new ethers.Contract(address, EVT_ABI, this._etherProvider);
+        // 
+    }
+
+    async buyTickets(eventAddress, amount){
+        const EVT =  new ethers.Contract(eventAddress, EVT_ABI, this._etherProvider);
+        const SaleID = 0 // Hard codding it for now
+        return EVT.mint(SaleID, await this.getAddress(), amount);
+    }
 }
