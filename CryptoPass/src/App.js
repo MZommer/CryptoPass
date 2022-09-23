@@ -14,6 +14,7 @@ import CrearEvento from './components/CrearEvento'
 import Sign from './components/Sign' 
 import readQr from './components/readQr'
 import ComprarEntradas from './components/ComprarEntradas'
+import Comprobante from './components/Comprobante'
 
 
 

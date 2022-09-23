@@ -37,7 +37,7 @@ export default class ETHHelper {
         const signerAdress = await ethers.utils.verifyMessage(blockNumber, signature);
         return signerAdress === address;
     }
-
+ 
     async getEvent(address) {
         const EVT = new ethers.Contract(address, EVT_ABI, this._etherProvider);
         const keys = ["Title", "Description", "Location", "Date", "ReleaseDate", "IsActive", "IsPublic", "TicketAmount", "TicketTypes", "Genres", "Tags", "MinAge", "mintedTickets"];
