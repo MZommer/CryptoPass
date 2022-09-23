@@ -11,8 +11,11 @@ import Error404 from './components/Error404'
 import Events from './components/Events'
 import VerEntradas from './components/VerEntradas'
 import CrearEvento from './components/CrearEvento'
-import Sign from './components/Sign'
+import Sign from './components/Sign' 
 import readQr from './components/readQr'
+import ComprarEntradas from './components/ComprarEntradas'
+
+
 
 
 
@@ -30,9 +33,7 @@ export default class App extends Component {
                     <Route exact path='/CrearEvento' component={CrearEvento} />
                     <Route exact path='/Sign' component={Sign} />
                     <Route exact path='/readQr' component={readQr} />
-
-
-
+                    <Route exact path='/ComprarEntradas' component={ComprarEntradas} />
                     <Route component={Error404} />
                 </Switch>
                 <Footer />
