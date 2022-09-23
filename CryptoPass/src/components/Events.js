@@ -8,7 +8,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import EventCard from './EventCard';
-import ComprarEntrada from './ComprarEntrada';
+import ComprarEntradas from './ComprarEntradas';
+
 import { Link } from 'react-router-dom'
 
 
@@ -53,7 +54,7 @@ export default function Events() {
                 <Container className='mb-3'>
                     <Row className='text-center'>
                         <Col>
-                            <Link to="/ComprarEntrada">
+                            <Link to="/ComprarEntradas">
                                 <div className="d-grid gap-2 mb-3">  
                                     <Button className="boton" variant="secondary" >Buy tickets</Button>
                                 </div>
