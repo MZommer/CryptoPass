@@ -36,6 +36,8 @@ export default class App extends Component {
                     <Route exact path='/Sign' component={Sign} />
                     <Route exact path='/readQr' component={readQr} />
                     <Route exact path='/ComprarEntradas' component={ComprarEntradas} />
+                    <Route exact path='/Comprobante' component={Comprobante} />
+
                     <Route component={Error404} />
                 </Switch>
                 <Footer />
