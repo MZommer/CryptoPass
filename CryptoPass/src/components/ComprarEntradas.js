@@ -14,7 +14,7 @@ function ComprarEntradas() {
             <div className="page-wrapper">
                 <h1 className='text-center mt-5'>Buy tickets </h1>
 
-                <Form>
+                <Form action={`https://CryptoPassServices.matiaszommer.repl.co/v1/events/create`} method="POST">
                     <Form.Group className="mb-3" controlId="Title">
                         <Form.Label>Title</Form.Label>
                         <Form.Control type="Text" placeholder="Enter title" />
