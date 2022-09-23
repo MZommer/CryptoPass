@@ -11,10 +11,11 @@ import Error404 from './components/Error404'
 import Events from './components/Events'
 import VerEntradas from './components/VerEntradas'
 import CrearEvento from './components/CrearEvento'
+import Comprobante from './components/Comprobante'
+
 import Sign from './components/Sign' 
 import readQr from './components/readQr'
 import ComprarEntradas from './components/ComprarEntradas'
-import Comprobante from './components/Comprobante'
 
 
 

@@ -3,7 +3,6 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import cardImage from "../img/cardImage.jpg";
 import { Link } from 'react-router-dom'
-import ComprarEntradas from './ComprarEntradas';
 
      
 function CardHome(props) {

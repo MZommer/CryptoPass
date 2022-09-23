@@ -26,6 +26,8 @@ export default class VerEntradas extends Component {
     return(
         <div className="page-wrapper">
         <h1>mis entradas</h1>
+
+        
     </div>
     )
 
