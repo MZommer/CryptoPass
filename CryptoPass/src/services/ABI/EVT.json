@@ -1,6 +1,52 @@
 [
 	{
-		"inputs": [],
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "pTitle",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "pDescription",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "pLocation",
+				"type": "string"
+			},
+			{
+				"internalType": "uint32",
+				"name": "pDate",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint32",
+				"name": "pReleaseDate",
+				"type": "uint32"
+			},
+			{
+				"internalType": "bool",
+				"name": "pIsActive",
+				"type": "bool"
+			},
+			{
+				"internalType": "bool",
+				"name": "pIsPublic",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint32",
+				"name": "pTicketAmount",
+				"type": "uint32"
+			},
+			{
+				"internalType": "uint8",
+				"name": "pMinAge",
+				"type": "uint8"
+			}
+		],
 		"stateMutability": "nonpayable",
 		"type": "constructor"
 	},
@@ -125,25 +171,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Genres",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "IsActive",
 		"outputs": [
@@ -209,25 +236,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "Tags",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "TicketAmount",
 		"outputs": [
@@ -235,25 +243,6 @@
 				"internalType": "uint32",
 				"name": "",
 				"type": "uint32"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "TicketTypes",
-		"outputs": [
-			{
-				"internalType": "string",
-				"name": "",
-				"type": "string"
 			}
 		],
 		"stateMutability": "view",
@@ -399,6 +388,25 @@
 	{
 		"inputs": [
 			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			}
+		],
+		"name": "getAddressTokens",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
 				"internalType": "uint256",
 				"name": "tokenId",
 				"type": "uint256"
@@ -435,6 +443,19 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "getTokens",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -456,6 +477,19 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenID",
+				"type": "uint256"
+			}
+		],
+		"name": "markTicket",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{

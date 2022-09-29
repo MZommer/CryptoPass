@@ -20,30 +20,28 @@ export default class ETHHelper {
         return await this._web3.eth.getBlockNumber()
     }
 
-    async generatePass(){
-        const blockNumber = await this.getBlockNumber();
+    async generatePass(tokenId){
         const signer = this._etherProvider.getSigner();
-        const signature = await signer.signMessage(blockNumber.toString());
+        const signature = await signer.signMessage(tokenId);
         const address = await signer.getAddress();
-        const pass = btoa(`${signature};${address}`);
+        const pass = btoa(`${signature};${address};${tokenId}`);
         return `CPT ${pass}`;  // Crypto Pass Token
     }
 
     async valdatePass(pass){
         if (!pass.startsWith("CPT"))
             return false;
-        const blockNumber = this._web3.eth.getBlockNumber()
-        const [signature, address] = atob(pass.split(" ")[1]).split(";");
-        const signerAdress = await ethers.utils.verifyMessage(blockNumber, signature);
+        const [signature, address, tokenId] = atob(pass.split(" ")[1]).split(";");
+        const signerAdress = await ethers.utils.verifyMessage(tokenId, signature);
         return signerAdress === address;
     }
  
     async getEvent(address) {
         const EVT = new ethers.Contract(address, EVT_ABI, this._etherProvider);
-        const keys = ["Title", "Description", "Location", "Date", "ReleaseDate", "IsActive", "IsPublic", "TicketAmount", "TicketTypes", "Genres", "Tags", "MinAge", "mintedTickets"];
+        const keys = ["Title", "Description", "Location", "Date", "ReleaseDate", "IsActive", "IsPublic", "TicketAmount", "MinAge", "mintedTickets"];
         const values = Promise.all(keys.map(key => EVT[key]()));
         const event = Object.fromEntries(keys.map((_, i) => [keys[i], values[i]]));
-
+        event.address = address;
         return event;
     }
 
@@ -54,7 +52,6 @@ export default class ETHHelper {
 
     async buyTickets(eventAddress, amount){
         const EVT =  new ethers.Contract(eventAddress, EVT_ABI, this._etherProvider);
-        const SaleID = 0 // Hard codding it for now
-        return EVT.mint(SaleID, await this.getAddress(), amount);
+        return EVT.mint(await EVT.getActiveSaleId(), await this.getAddress(), amount);
     }
 }
