@@ -11,7 +11,7 @@ const initialState = {
     events: [
         {
             id: "1",
-            Title: "Lollaa :zany:",
+            Title: "Lollaa 🤪",
             Description: "",
             Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
         }

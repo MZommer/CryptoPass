@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useEtherContext } from "../contexts/EtherContext"
+import { useEtherContext } from "../contexts/EtherContext";
 import { useEventsContext } from "../contexts/EventsContext";
-import toast from 'react-hot-toast'
+import toast from 'react-hot-toast';
 import Loading from "../components/Loading";
 
 const DummyEventAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";  // Goerli testnet

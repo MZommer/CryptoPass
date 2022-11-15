@@ -31,20 +31,21 @@ export default class EtherHelper {
 
 
 
-    async generatePass(tokenId){
-        const signer = this._etherProvider.getSigner();
+    async generatePass(contractAddress, tokenId){
+        const signer = this.etherProvider.getSigner();
         const signature = await signer.signMessage(tokenId);
         const address = await signer.getAddress();
-        const pass = btoa(`${signature};${address};${tokenId}`);
+        const pass = btoa(`${signature};${address};${tokenId};${contractAddress}`);
         return `CPT ${pass}`;  // Crypto Pass Token
     }
 
-    async valdatePass(pass, eventAddress){
+    async valdatePass(pass){
         if (!pass.startsWith("CPT"))
             return false;
-        const [signature, address, tokenId] = atob(pass.split(" ")[1]).split(";");
+        const [signature, address, tokenId, contractAddress] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(tokenId, signature);
-        const EVT = new ethers.Contract(eventAddress, EVT_ABI, this._etherProvider);
+        const EVT = new ethers.Contract(contractAddress, EVT_ABI, this.etherProvider);
+        // TODOO: Make validation
         const owner = await EVT.ownerOf(tokenId);
         return signerAdress === owner;
     }

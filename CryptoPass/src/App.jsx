@@ -5,6 +5,7 @@ import { Toaster } from 'react-hot-toast';
 
 import EventScreen from './screens/EventScreen';
 import HomeScreen from './screens/HomeScreen';
+import SignScreen from './screens/SignScreen';
 
 export default function App() {
 
@@ -15,6 +16,7 @@ export default function App() {
             <Routes>
                 <Route path="/" element={<HomeScreen/>}/>
                 <Route path="/events/:eventId" element={<EventScreen/>}/>
+                <Route path="/sign" element={<SignScreen/>}/>
             </Routes>
             {/* Footer */}
         </Router>
