@@ -1,0 +1,1 @@
+export const events_url = "https://CryptoPassServices.matiaszommer.repl.co/v1/events/search"

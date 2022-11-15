@@ -39,12 +39,12 @@ export default class EtherHelper {
         return `CPT ${pass}`;  // Crypto Pass Token
     }
 
-    async valdatePass(pass, address){
+    async valdatePass(pass, eventAddress){
         if (!pass.startsWith("CPT"))
             return false;
         const [signature, address, tokenId] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(tokenId, signature);
-        const EVT = new ethers.Contract(address, EVT_ABI, this._etherProvider);
+        const EVT = new ethers.Contract(eventAddress, EVT_ABI, this._etherProvider);
         const owner = await EVT.ownerOf(tokenId);
         return signerAdress === owner;
     }
