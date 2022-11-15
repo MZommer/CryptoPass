@@ -1,22 +1,21 @@
 
-import { createContext, useContext, useEffect, useReducer } from 'react';
-import reducer from '../reducers/EtherReducer';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 import EtherHelper from '../utils/EtherHelper';
 import { getEther } from '../utils/getEther';
 
-import { INIT_ETHER } from '../actions';
-
 const EtherContext = createContext();
 
 export const EtherProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(reducer, null);
+    const [state, setState] = useState();
 
 
     // connect to wallet
     useEffect(() => {
+        console.log("Getting ether")
         getEther()
-            .then(ether => dispatch({ type: INIT_ETHER, payload: new EtherHelper(ether) }))
+            .then(ether => setState(new EtherHelper(ether)))
+            .then(() => console.log("Ether got"))
     }, [])
 
 
