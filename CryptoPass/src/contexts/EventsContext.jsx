@@ -14,6 +14,18 @@ const initialState = {
             Title: "Lollaa 🤪",
             Description: "",
             Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
+        },
+        {
+            id: "2",
+            Title: "Arcos picado",
+            Description: "",
+            Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
+        },
+        {
+            id: "3",
+            Title: "Wop",
+            Description: "",
+            Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
         }
     ],
     events_loading: false,
