@@ -28,6 +28,8 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
+import Container from '@mui/material/Container';
+
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -112,6 +114,7 @@ export default function App() {
 
     return (
 <>
+<Container maxWidth="sm">
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -185,6 +188,8 @@ export default function App() {
             </Routes>
             {/* Footer */}
     </Router>
+
+    </Container>
 
 </>
 
