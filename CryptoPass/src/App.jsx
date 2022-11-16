@@ -114,7 +114,6 @@ export default function App() {
 
     return (
 <>
-<Container maxWidth="sm">
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
@@ -189,7 +188,6 @@ export default function App() {
             {/* Footer */}
     </Router>
 
-    </Container>
 
 </>
 

@@ -6,15 +6,25 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
-
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(25),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
 
 export default function EventCard({Title, Description, id}) {
 
     return (
-        <div>
-
-            <Card sx={{ maxWidth: 345 }}>
+        
+        <div style={{display: "inline"}}>
+            <Card >
                 <CardMedia
                     component="img"
                     height="140"
@@ -22,7 +32,7 @@ export default function EventCard({Title, Description, id}) {
                     alt={Title}
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gu  tterBottom variant="h5" component="div">
                     {Title}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">

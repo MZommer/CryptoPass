@@ -13,7 +13,7 @@ export default function HomeScreen() {
         return <Loading/>; // TODO: handle error
 
     return (
-        <div>
+        <div className='container d-flex justify-content-between flex-wrap'>
             {events.map(event => <EventCard {...event}/>)}
         </div>
     )
