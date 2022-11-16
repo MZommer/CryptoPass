@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
+import url from 'node:url';
 import toast from 'react-hot-toast';
 import { useEtherContext } from "../contexts/EtherContext"
 
@@ -17,7 +18,10 @@ export default function SignScreen() {
     const generatePass = () => {
         if (EtherHelper)
             EtherHelper.generatePass(contractAddress, tokenId)
-                .then(pass => setQrCode(pass))
+                .then(pass => {
+                        const url = "https://metamask.app.link/dapp/" + window.location.host + "/markTicket/" + pass
+                        setQrCode(url)
+                    })
                 .catch(err => {
                     toast.error("Accept the signing prompt in order to sign your ticket")
                     setTimeout(() => generatePass(), 2000)
