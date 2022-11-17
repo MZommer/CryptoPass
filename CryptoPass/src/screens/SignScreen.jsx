@@ -20,7 +20,7 @@ export default function SignScreen() {
         if (EtherHelper)
             EtherHelper.generatePass(contractAddress, tokenId)
                 .then(pass => {
-                        const url = "metamask://" + window.location.host + "/markTicket/" + pass
+                        const url = "https://metamask.app.link/dapp/" + window.location.host + "/markTicket/" + pass
                         setQrCode(url)
                     })
                 .catch(err => {
