@@ -10,6 +10,15 @@ import SignScreen from "./SignScreen";
 const DummyEventAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";  // Goerli testnet
 import { Link } from "react-router-dom"
 
+function Ticket({tokenId, contractAddress}) {
+    return (
+        <Button  variant="contained" color="secondary">
+            <Link to={`/Sign`} state={{tokenId, contractAddress}}>NFTS</Link>
+        </Button>
+    )
+}
+
+
 export default function EventScreen() {
     const { EtherHelper } = useEtherContext();
     const [eventInfo, setEventInfo] = useState();
@@ -39,7 +48,7 @@ export default function EventScreen() {
     }, [EtherHelper])
     if (!eventInfo)
         return <Loading/>
-    console.log(eventInfo)
+    console.log(addressTokens)
     return ( 
         <div>
             
@@ -50,13 +59,14 @@ export default function EventScreen() {
                 <Button variant="contained" color="success"onClick={buyTickets}>
                     Comprar
                 </Button><br></br><br></br>
-                <Button  variant="contained" color="secondary">
-                    <Link to={`/Sign`}>NFTS</Link>
-                </Button>
+                
             
             
-            { !addressTokens? 
-                <div>Owned Tickets {addressTokens.join(", ")}</div> 
+            { addressTokens.length > 0 ? 
+                <>
+                    <div>Owned Tickets</div> 
+                    {addressTokens.map(token => <Ticket key={token.toString()} tokenId={token.toString()} contractAddress={Address}/>)} 
+                </>
                 : null}
         </div>
     )
