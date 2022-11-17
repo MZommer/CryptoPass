@@ -114,7 +114,7 @@ export default function App() {
 
     return (
 <>
-    <Box sx={{ display: 'flex' }}>
+   
       <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Toolbar>
@@ -148,7 +148,7 @@ export default function App() {
              
               <ListItemButton
                 sx={{
-                  minHeight: 48,
+                  minHeight: 4,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
                 }}
@@ -168,14 +168,6 @@ export default function App() {
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        <DrawerHeader />
-       
-        <Typography paragraph>
-         
-        </Typography>
-      </Box>
-    </Box>
 
     <Router>
             <Toaster />
