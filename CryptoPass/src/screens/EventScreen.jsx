@@ -5,8 +5,10 @@ import { useEtherContext } from "../contexts/EtherContext";
 import { useEventsContext } from "../contexts/EventsContext";
 import toast from 'react-hot-toast';
 import Loading from "../components/Loading";
-
+import Button from '@mui/material/Button';
+import SignScreen from "./SignScreen";
 const DummyEventAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";  // Goerli testnet
+import { Link } from "react-router-dom"
 
 export default function EventScreen() {
     const { EtherHelper } = useEtherContext();
@@ -40,10 +42,19 @@ export default function EventScreen() {
     console.log(eventInfo)
     return ( 
         <div>
-            <h1>{eventInfo.Title}</h1>
-            <h3>{eventInfo.Description}</h3>
-
-            <button onClick={buyTickets}>Comprar entradas</button>
+            
+            <h1 >{eventInfo.Title}</h1>
+            <h5>{eventInfo.Description}</h5>
+            <img height="200" src="https://www.cronista.com/files/image/452/452986/6235fa764a52b_360_480!.jpg?s=2b1e61cbad5b0ef53b40c56d6a51a3b2&d=1647706646" />
+            <br></br> <br></br>
+                <Button variant="contained" color="success"onClick={buyTickets}>
+                    Comprar
+                </Button><br></br><br></br>
+                <Button  variant="contained" color="secondary">
+                    <Link to={`/Sign`}>NFTS</Link>
+                </Button>
+            
+            
             { !addressTokens? 
                 <div>Owned Tickets {addressTokens.join(", ")}</div> 
                 : null}

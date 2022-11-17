@@ -26,11 +26,12 @@ export default function EventCard({Title, Description, id}) {
 
     return (
         
-        <div style={{display: "inline"}}>
+        <div >
             
-
-            <Container>
-                <Row>
+            
+            <Container >
+               
+                <Row className="text-center" >
                     <Col className="text-center" >
                     <Card className="text-center">
                         <CardMedia
@@ -59,7 +60,6 @@ export default function EventCard({Title, Description, id}) {
             </Container>
 
             
-          
         </div>
     )
 }
