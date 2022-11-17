@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
-import url from 'node:url';
 import toast from 'react-hot-toast';
 import { useEtherContext } from "../contexts/EtherContext"
+import { useLocation } from "react-router-dom";
 
 export default function SignScreen() {
     // @param contractAddress: string
     // @param tokenId: string  // id of the nft to sign
-    // see https://stackoverflow.com/questions/52238637/react-router-how-to-pass-data-between-pages-in-react
-    const contractAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";
-    const tokenId = 1;
 
+    const location = useLocation();
+    
+    const contractAddress = location.state.contractAddress;
+    const tokenId = location.state.tokenId;
 
     const { EtherHelper } = useEtherContext();
     const [qrCode, setQrCode] = useState();
@@ -23,13 +24,14 @@ export default function SignScreen() {
                         setQrCode(url)
                     })
                 .catch(err => {
+                    console.error(err)
                     toast.error("Accept the signing prompt in order to sign your ticket")
-                    setTimeout(() => generatePass(), 2000)
+                    setTimeout(() => generatePass(), 3000)
                 })
     }
     
 
-    useEffect(() => generatePass(contractAddress, tokenId), [EtherHelper])
+    useEffect(() => generatePass(contractAddress, tokenId), [])
 
     return (
         <div className="page-wrapper">
