@@ -18,15 +18,30 @@ export default class EtherHelper {
         return eventInfo;
     }
 
+    async getSaleInfo(eventAddress) {
+        const EVT = new ethers.Contract(eventAddress, EVT_ABI, this.etherProvider);
+        try {
+            const saleId = await EVT.getActiveSaleId()
+            const salePrice = await EVT.getSalePrice(saleId);
+            console.log(saleId, salePrice)
+            return {saleId, salePrice}
+        }
+        catch (err) {
+            console.error(err);
+            return null;
+        }
+
+    }
+
     async getAddressTokens(eventAddress) {
         const EVT = new ethers.Contract(eventAddress, EVT_ABI, this.etherProvider);
         const tokens = EVT.getAddressTokens(await this.getAddress());
         return tokens;
 
     }
-    async buyTickets(eventAddress, amount) {
+    async buyTickets(eventAddress, amount, saleId) {
         const EVT = new ethers.Contract(eventAddress, EVT_ABI, this.etherProvider.getSigner(), {value: 2000*amount});
-        return await EVT.mint(await EVT.getActiveSaleId(), await this.getAddress(), amount); // missing the sending of the money for the ticket
+        return await EVT.mint(saleId, await this.getAddress(), amount); // missing the sending of the money for the ticket
     }
 
 

@@ -22,6 +22,7 @@ function Ticket({tokenId, contractAddress}) {
 export default function EventScreen() {
     const { EtherHelper } = useEtherContext();
     const [eventInfo, setEventInfo] = useState();
+    const [saleInfo, setSaleInfo] = useState();
     const [addressTokens, setAddressTokens] = useState([]);
     const [amount, setAmount] = useState(1);
     const { getEvent } = useEventsContext();
@@ -29,7 +30,7 @@ export default function EventScreen() {
     const { Address } = getEvent(eventId);
 
     const buyTickets = () => {
-        EtherHelper.buyTickets(Address, amount)
+        EtherHelper.buyTickets(Address, amount, saleInfo.saleId)
             .then(() => toast.success("Ticket minted successfully!!"))
             .catch(err => toast.error("Error while trying to mint the tickets, Check that you have enough to make the transaction"))
     }
@@ -45,10 +46,13 @@ export default function EventScreen() {
         EtherHelper.getAddressTokens(Address)
             .then(_addressTokens => setAddressTokens(_addressTokens))
             .catch(console.error)
+        EtherHelper.getSaleInfo(Address)
+            .then(_saleInfo => setSaleInfo(_saleInfo))
+            .catch(console.error)
+
     }, [EtherHelper])
     if (!eventInfo)
         return <Loading/>
-    console.log(addressTokens)
     return ( 
         <div>
             
