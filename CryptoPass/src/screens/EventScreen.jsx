@@ -1,16 +1,32 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Chip from '@mui/material/Chip';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Stack from '@mui/material/Stack';
+import Divider from '@mui/material/Divider';
+import Typography from '@mui/material/Typography';
+import { Link } from "react-router-dom"
+const DummyEventAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";  // Goerli testnet
+import SignScreen from "./SignScreen";
+import Loading from "../components/Loading";
+import Select from "../components/Select";
+
+import toast from 'react-hot-toast';
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useEtherContext } from "../contexts/EtherContext";
 import { useEventsContext } from "../contexts/EventsContext";
-import toast from 'react-hot-toast';
-import Loading from "../components/Loading";
-import Button from '@mui/material/Button';
-import SignScreen from "./SignScreen";
-const DummyEventAddress = "0xEe481D239837B85944912B2dE0685E45644959B1";  // Goerli testnet
-import { Link } from "react-router-dom"
 
-export default function EventScreen() {
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+
+
+export default function EventScreen({Title, Description, id}) {
+
     const { EtherHelper } = useEtherContext();
     const [eventInfo, setEventInfo] = useState();
     const [addressTokens, setAddressTokens] = useState([]);
@@ -40,24 +56,58 @@ export default function EventScreen() {
     if (!eventInfo)
         return <Loading/>
     console.log(eventInfo)
-    return ( 
-        <div>
+
+    return (
+
+        <>
+
+
+
+<Container>
+       
+    
+    </Container>
+        
+      <Box sx={{ width: '110%', maxWidth: 10000, bgcolor: 'background.paper' }}>
+        <Box sx={{ my: 4, mx: 5 }}>
+          <Grid container alignItems="center">
+       
+            <Grid item xs>
+              <Typography gutterBottom variant="h4" component="div">
+              {eventInfo.Title}
+              </Typography>
+            </Grid>
+          </Grid>
+          <Typography color="text.secondary" variant="body2">
+          {eventInfo.Description}
+          </Typography>
+        </Box>
+            <Divider variant="middle" sx={{ mb: 3 }}/>
             
-            <h1 >{eventInfo.Title}</h1>
-            <h5>{eventInfo.Description}</h5>
-            <img height="200" src="https://www.cronista.com/files/image/452/452986/6235fa764a52b_360_480!.jpg?s=2b1e61cbad5b0ef53b40c56d6a51a3b2&d=1647706646" />
-            <br></br> <br></br>
-                <Button variant="contained" color="success"onClick={buyTickets}>
-                    Comprar
-                </Button><br></br><br></br>
-                <Button  variant="contained" color="secondary">
+           
+        <Row >
+            
+            <Col >
+                <img  src='https://definicion.de/wp-content/uploads/2009/09/concierto.jpg'/>
+            </Col>
+            <Col>
+                <Select/>
+                <Box sx={{ mt: 3, ml: 1, mb: 1 }}>
+                    <Button variant="contained" color="success"onClick={buyTickets}>Comprar</Button>
+                </Box>
+                <Button  variant="outlined" color="primary">
                     <Link to={`/Sign`}>NFTS</Link>
                 </Button>
-            
-            
+            </Col>
+        </Row>
+               
+        </Box>
+
+
             { !addressTokens? 
-                <div>Owned Tickets {addressTokens.join(", ")}</div> 
-                : null}
-        </div>
-    )
-}
+        <div>Owned Tickets {addressTokens.join(", ")}</div> 
+        : null}
+
+</>
+    );
+  }

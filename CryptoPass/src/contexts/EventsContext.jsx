@@ -12,19 +12,19 @@ const initialState = {
         {
             id: "1",
             Title: "Lollaa 🤪",
-            Description: "",
+            Description: "el lola es en",
             Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
         },
         {
             id: "2",
             Title: "Arcos picado",
-            Description: "",
+            Description: "Arcos es en",
             Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
         },
         {
             id: "3",
             Title: "Wop",
-            Description: "",
+            Description: "wop es en",
             Address: "0xEe481D239837B85944912B2dE0685E45644959B1",
         }
     ],

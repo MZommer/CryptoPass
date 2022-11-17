@@ -12,7 +12,7 @@ export default function HomeScreen() {
         return <Loading/>; // TODO: handle error
 
     return (
-        <div className='container d-flex p-2'>
+        <div className='container d-flex p-5'>
             {events.map(event => <EventCard {...event}/>)}
         </div>
     )
