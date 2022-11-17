@@ -1,5 +1,4 @@
 import { useEventsContext } from "../contexts/EventsContext"
-
 import Loading from '../components/Loading';
 import EventCard from "../components/EventCard";
 
@@ -13,7 +12,7 @@ export default function HomeScreen() {
         return <Loading/>; // TODO: handle error
 
     return (
-        <div className='container d-flex justify-content-between flex-wrap'>
+        <div className='container d-flex p-2'>
             {events.map(event => <EventCard {...event}/>)}
         </div>
     )

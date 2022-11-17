@@ -14,26 +14,20 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(25),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  }));
+
+
+
 
 export default function EventCard({Title, Description, id}) {
 
     return (
         
         <div >
-            
-            
             <Container >
                
                 <Row className="text-center" >
-                    <Col className="text-center" >
-                    <Card className="text-center">
+                    <Col className="text-center  " >
+                    <Card className="text-center cards">
                         <CardMedia
                             component="img"
                             height="140"
