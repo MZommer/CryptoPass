@@ -13,12 +13,15 @@ import Grid from '@mui/material/Grid';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import Image from 'react-bootstrap/Image'
 
 
 
 
 export default function EventCard({Title, Description, id}) {
+
+
+    
 
     return (
         
@@ -32,6 +35,7 @@ export default function EventCard({Title, Description, id}) {
                             component="img"
                             height="140"
                             image="https://th.bing.com/th/id/OIP.Jj4q6FxcAHrbIs9sR0cDlAHaE8?pid=ImgDet&rs=1"
+                            className="fluid"
                             alt={Title}
                         />
                         <CardContent>
@@ -46,7 +50,7 @@ export default function EventCard({Title, Description, id}) {
                             <Button size="small">
                                 <Link to={`/events/${id}`}>More details</Link>
                             </Button>
-                            <Button size="small">Learn More</Button>
+                            
                         </CardActions>
                         </Card>
                     </Col>

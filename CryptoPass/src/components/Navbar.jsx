@@ -15,12 +15,6 @@ export default function NavBar() {
     <Navbar>
       <Navbar.Brand href="/">Cryptopass</Navbar.Brand>
       <Navbar.Toggle />
-      <Navbar.Collapse className="justify-content-end">
-        <Nav className="justify-content-end">
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="../screens/EventScreen">Mis eventos</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
   </Navbar>
   );
 }
