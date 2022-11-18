@@ -59,9 +59,14 @@ export default class EtherHelper {
             return false;
         const [signature, address, tokenId, contractAddress] = atob(pass.split(" ")[1]).split(";");
         const signerAdress = await ethers.utils.verifyMessage(tokenId, signature);
-        const EVT = new ethers.Contract(contractAddress, EVT_ABI, this.etherProvider);
-        // TODOO: Make validation
+        const EVT = new ethers.Contract(contractAddress, EVT_ABI, this.etherProvider.getSigner());
         const owner = await EVT.ownerOf(tokenId);
-        return signerAdress === owner;
+        console.log(owner)
+        if (signerAdress == owner) {
+            const tx = await EVT.markTicket(tokenId, {gasLimit: 50000})
+            await tx.wait()
+            return true;
+        }
+        else return false;
     }
 }
