@@ -24,7 +24,7 @@ import Col from 'react-bootstrap/Col';
 
 function Ticket({tokenId, contractAddress}) {
     return (
-        <Button  variant="outlined" color="primary">
+        <Button  variant="contained" color="secondary">
             <Link to={`/Sign`} state={{tokenId, contractAddress}}>NFTS</Link>
         </Button>
     )
@@ -42,6 +42,7 @@ export default function EventScreen({Title, Description, id}) {
 
     const buyTickets = () => {
         EtherHelper.buyTickets(Address, amount, saleInfo.saleId, saleInfo.salePrice)
+            .then(async tx => await tx.wait())
             .then(() => toast.success("Ticket minted successfully!!"))
             .catch(err => toast.error("Error while trying to mint the tickets, Check that you have enough to make the transaction"))
     }
@@ -65,7 +66,7 @@ export default function EventScreen({Title, Description, id}) {
     }, [EtherHelper])
     if (!eventInfo)
         return <Loading/>
-    console.log(eventInfo)
+    console.log(addressTokens)
 
     return (
 
