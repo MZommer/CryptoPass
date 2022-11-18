@@ -17,9 +17,10 @@ export default function SignScreen() {
     const [qrCode, setQrCode] = useState();
 
     const generatePass = () => {
-        if (EtherHelper)
+        if (EtherHelper && tokenId)
             EtherHelper.generatePass(contractAddress, tokenId)
                 .then(pass => {
+                        console.log(pass)
                         const url = "https://metamask.app.link/dapp/" + window.location.host + "/markTicket/" + pass
                         setQrCode(url)
                     })
@@ -31,7 +32,9 @@ export default function SignScreen() {
     }
     
 
-    useEffect(() => generatePass(contractAddress, tokenId), [])
+    useEffect(() => {
+        generatePass(contractAddress, tokenId)
+    }, [])
 
     return (
         <div className="page-wrapper">

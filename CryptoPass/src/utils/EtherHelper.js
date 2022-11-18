@@ -39,9 +39,9 @@ export default class EtherHelper {
         return tokens;
 
     }
-    async buyTickets(eventAddress, amount, saleId) {
-        const EVT = new ethers.Contract(eventAddress, EVT_ABI, this.etherProvider.getSigner(), {value: 2000*amount});
-        return await EVT.mint(saleId, await this.getAddress(), amount); // missing the sending of the money for the ticket
+    async buyTickets(eventAddress, amount, saleId, salePrice) {
+        const EVT = new ethers.Contract(eventAddress, EVT_ABI, this.etherProvider.getSigner());
+        return await EVT.mint(saleId, await this.getAddress(), amount, {value: salePrice*amount}); // missing the sending of the money for the ticket
     }
 
 
