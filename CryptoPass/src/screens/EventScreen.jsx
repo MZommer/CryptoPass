@@ -24,7 +24,7 @@ import Col from 'react-bootstrap/Col';
 
 function Ticket({tokenId, contractAddress}) {
     return (
-        <Button  variant="contained" color="secondary">
+        <Button  variant="outlined" color="primary">
             <Link to={`/Sign`} state={{tokenId, contractAddress}}>NFTS</Link>
         </Button>
     )
