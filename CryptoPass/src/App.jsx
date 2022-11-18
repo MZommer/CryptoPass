@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Link } from "react-router-dom"
-import NavBar from  './components/NavBar';
+import Navbar from  './components/Navbar';
 import './App.css'
 import { Toaster } from 'react-hot-toast';
 
@@ -16,7 +16,7 @@ export default function App() {
 
     return (
 <>   
-    <NavBar/>
+    <Navbar/>
 
     <Router>
             <Toaster />
